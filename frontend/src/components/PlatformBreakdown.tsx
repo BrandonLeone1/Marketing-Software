@@ -22,7 +22,7 @@ export function PlatformBreakdown ({breakdown}: PlatformBreakdownProps) {
             <div className="overflow-x-auto w-full">
                 <table className="w-full text-left border-collapse">
                     <thead>
-            <tr className="border-b border-slate-100 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <tr className="border-b border-slate-100 text-xs font-semibold uppercase tracking-wider text-slate-500">
                 <th className="p-3">Platform</th>
                 <th className="p-3 text-right">Clicks</th>
                 <th className="p-3 text-right">Impressions</th>

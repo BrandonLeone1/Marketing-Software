@@ -19,7 +19,7 @@ import { CSVUpload } from "../components/CSVUpload";
 export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     
     const selectedID = useParams();
-    console.log(selectedID);
+    
 
     const selectedCampaign = campaigns?.find(item => item?.id === Number(selectedID.id));
     const [selectedDays, setSelectedDays] = useState("30");
@@ -49,7 +49,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
             
             const data = await response.json();
 
-            console.log(data);
+           
             if (!data.success) {
                 throw new Error(`Failed`)
             };
@@ -72,7 +72,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
             })
             const data = await response.json();
 
-            console.log(data);
+          
             if (!data.success) {
                 throw new Error(`Failed`)
             }
@@ -95,7 +95,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
 
         const data = await response.json();
 
-        console.log(data);
+     
 
         if (!data.success) {
             throw new Error(`Failed`)
@@ -193,7 +193,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     return (
         <>
             <main className="max-w-7xl p-6 mx-auto">
-                <Link to={`/dashboard`} className="text-xl cursor-pointer text-indigo-500 underline opacity-70 hover:opacity-100">Dashboard</Link>
+                <Link to={`/dashboard`} className="text-xl cursor-pointer text-indigo-500 underline">Dashboard</Link>
                 
                 <div className="flex justify-between items-center">
                     <h1 className="text-4xl mt-24 font-semibold">{selectedCampaign?.campaign_name}</h1>

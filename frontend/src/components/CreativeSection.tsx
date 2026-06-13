@@ -181,7 +181,7 @@ export function CreativeSection () {
 
             <div className="mt-8">
 
-            <button onClick={() => setShowingCreatives(prev => !prev)} className="mb-12 font-medium cursor-pointer text-indigo-500 underline opacity-70 hover:opacity-100 duration-150 text-lg">{showingCreatives ? "Close" : "View creatives"}</button>
+            <button onClick={() => setShowingCreatives(prev => !prev)} className="mb-12 font-medium cursor-pointer text-indigo-500 underline opacity-90 hover:opacity-100 duration-150 text-lg">{showingCreatives ? "Close" : "View creatives"}</button>
             
             <div className="flex flex-col gap-6">
             { showingCreatives && ( 

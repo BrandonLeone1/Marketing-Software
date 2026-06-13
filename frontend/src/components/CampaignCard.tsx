@@ -149,10 +149,10 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                 <hr className="border-slate-300 border opacity-85 appearance-none h-0.5 rounded=x; bg-slate-300"/>
                 
                 <div className="flex justify-between items-center">
-                    <Link to={`/campaign/${campaign.id}`} className="font-medium -mt-1 duration-150 w-fit text-indigo-500 hover:underline">View insights <i className="fa-solid fa-arrow-right"></i></Link>
+                    <Link to={`/campaign/${campaign.id}`} className="font-medium -mt-1 duration-150 w-fit text-indigo-500 hover:underline" aria-label="An in-depth, campaign-specific dashboard">View insights <i className="fa-solid fa-arrow-right"></i></Link>
                     { campaign.user_role === "Owner" && (
                         <button
-                        onClick={() => setEditingCampaign(true)}
+                        onClick={() => setEditingCampaign(true)} aria-label="Settings button"
                         ><i className="fa-solid fa-gear text-xl cursor-pointer text-slate-700 hover:rotate-90 duration-200"></i></button>
                     )
 

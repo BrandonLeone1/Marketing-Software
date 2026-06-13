@@ -35,7 +35,7 @@ export function KPICard ({overviewData, title, isLoading}: KPICardProps) {
             
             <div className="flex justify-between items-center">
                 <h3>{title === "roas" ? "Average ROAS" : title === "spend" ? "Total Ad Spend" : "Total CTR"}</h3>
-                <p className={`ml-auto text-xs ${percentDiff >= 0 ? "bg-emerald-600/80" : "bg-rose-500"} text-white px-3 py-1 rounded-xl`}>{percentDiff.toFixed(2)}% vs last week</p>
+                <p className={`ml-auto text-xs ${percentDiff >= 0 ? "bg-emerald-800/80" : "bg-rose-800"} text-white px-3 py-1 rounded-xl`}>{percentDiff.toFixed(2)}% vs last week</p>
             </div>
 
             <p className="text-4xl font-medium">{title === "spend" && "$"}{currentWeek}{title === "roas" ? "x" : title === "ctr" ? "%" : ""}</p>

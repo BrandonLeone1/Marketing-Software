@@ -13,7 +13,7 @@ export function CPACard ({cpaInfo}: CPACardProps) {
                     
                     <div className="flex gap-2 items-center">
                         <p className="text-3xl">${mostRecentCPA}</p>
-                        <p className="text-sm opacity-50">most recently!</p>
+                        <p className="text-sm opacity-80">most recently!</p>
                     </div>
                     
                     <div className="w-full">
