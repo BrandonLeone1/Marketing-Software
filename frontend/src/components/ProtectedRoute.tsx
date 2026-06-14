@@ -1,10 +1,18 @@
-import { Navigate } from "react-router-dom";
-import { RouteProps } from "../types/RouteProps";
+import { ReactNode } from "react"
+import { activeUser } from "../types/activeUser"
+import { Navigate } from "react-router-dom"
 
-export function PublicRoute ({activeUser, children, loadingAuth}: RouteProps) {
+type props = {
+    activeUser: activeUser | null,
+    children: ReactNode,
+    loadingAuth: boolean
+}
+
+export function ProtectedRoute ({activeUser, children, loadingAuth}: props) {
+
     if (loadingAuth) {
         return (
-            <div className="flex flex-col gap-6 h-screen items-center justify-center -mt-10">
+            <div className="flex flex-col gap-6">
                 <p>Please wait...</p>
                 <svg className="animate-spin h-8 w-8 text-indigo-500" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -13,9 +21,9 @@ export function PublicRoute ({activeUser, children, loadingAuth}: RouteProps) {
             </div>
         )
     }
-    
-    if (activeUser) {
-        return <Navigate to={`/dashboard`}/>
+
+    if (!activeUser) {
+        return <Navigate to={"/login"}/>
     }
 
     return children

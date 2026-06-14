@@ -146,7 +146,7 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                 <p className="text-lg">${campaign.budget}</p>
                 </div>
                 <p className="opacity-70 -mt-3">Created: {campaign.created_at.split("T")[0]}</p>
-                <hr className="border-slate-300 border opacity-85 appearance-none h-0.5 rounded=x; bg-slate-300"/>
+                <hr className="border-slate-300 border opacity-85 appearance-none h-0.5 rounded-xl mt-3 bg-slate-300"/>
                 
                 <div className="flex justify-between items-center">
                     <Link to={`/campaign/${campaign.id}`} className="font-medium -mt-1 duration-150 w-fit text-indigo-500 hover:underline" aria-label="An in-depth, campaign-specific dashboard">View insights <i className="fa-solid fa-arrow-right"></i></Link>

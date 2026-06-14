@@ -164,11 +164,11 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                             ...prev,
                             platform: e.target.value
                         }))}
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                     />
                     </label>
                     
-                    <label htmlFor="clicks"><span className="text-lg">Clicks:</span>
+                    <label htmlFor="clicks"><span className="text-lg mt-3 block">Clicks:</span>
                         <input 
                         type="number"
                         id="clicks"
@@ -177,13 +177,13 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                             ...prev,
                             clicks: e.target.value
                         }))}
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </label>
 
-                    <label htmlFor="impressions"><span className="text-lg">Impressions:</span>
+                    <label htmlFor="impressions"><span className="text-lg mt-3 block">Impressions:</span>
                         <input 
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         type="number"
                         id="impressions"
                         value={newMetric.impressions}
@@ -194,9 +194,9 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                         />
                     </label>
                     
-                    <label htmlFor="conversions"><span className="text-lg">Conversions:</span>
+                    <label htmlFor="conversions"><span className="text-lg mt-3 block">Conversions:</span>
                         <input 
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         id="conversions"
                         type="number"
                         value={newMetric.conversions}
@@ -207,33 +207,33 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                         />
                     </label>
                     
-                    <label htmlFor="spend"><span className="text-lg">Ad Spend:</span>
+                    <label htmlFor="spend"><span className="text-lg block mt-3">Ad Spend:</span>
                         <input 
                         value={newMetric.ad_spend}
                         onChange={(e) => setNewMetric(prev => ({
                             ...prev,
                             ad_spend: e.target.value
                         }))}
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         id="spend"
                         type="number"/>
                     </label>
                     
-                    <label htmlFor="revenue"><span className="text-lg">Revenue:</span>
+                    <label htmlFor="revenue"><span className="text-lg block mt-3">Revenue:</span>
                         <input 
                         value={newMetric.revenue}
                         onChange={(e) => setNewMetric(prev => ({
                             ...prev,
                             revenue: e.target.value
                         }))}
-                        className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2"
+                        className="border px-2 py-3 border-slate-300 opacity-70 rounded-lg w-full mt-2 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         id="revenue"
                         type="number"/>
                     </label>
 
                     <button
                     onClick={handleAddMetric}
-                    className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:opacity-90 duration-150"
+                    className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-2.5 rounded text-white hover:opacity-90 duration-150"
                     >Add</button>
 
                 </>

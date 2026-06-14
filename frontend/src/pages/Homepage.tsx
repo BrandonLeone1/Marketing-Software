@@ -6,7 +6,7 @@ import { KPICard } from "../components/KPICard";
 import { overviewData } from "../types/overviewData";
 import { newCampaign } from "../types/newCampaign";
 
-export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaign}:HomepageProps) {
+export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaign, activeUser}:HomepageProps) {
     
     const initialState: spendLineCharts = {
         spend: 0,
@@ -112,7 +112,7 @@ useEffect(() => {
                                 ...prev,
                                 campaign_name: e.target.value
                             }))}
-                            className="border border-slate-300 p-2 rounded-xl w-full mt-2"
+                            className="border border-slate-300 px-2 py-3 rounded-xl w-full mt-3 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </label>
 
@@ -126,13 +126,13 @@ useEffect(() => {
                                 ...prev,
                                 budget: e.target.value
                             }))}
-                            className="border border-slate-300 p-2 rounded-xl w-full mt-2"
+                            className="border border-slate-300 px-2 py-3 rounded-xl w-full mt-3 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                             />
                         </label>
 
                         <button 
                         onClick={handleAddCampaign}
-                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:opacity-90">Create</button>
+                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-lg text-white font-medium shadow-md hover:shadow-lg duration-150 hover:opacity-90">Create</button>
                     </div>
                 </div>
             )
@@ -143,8 +143,12 @@ useEffect(() => {
                 <section>
                     
                     <div className="flex flex-wrap font-semibold mt-20 items-center justify-between">
-                        <h1 className="text-4xl py-1.5 mt-6 lg:mt-0">Welcome back!</h1>
-                    
+                        
+                        <div>
+                            <h1 className="text-4xl py-1.5 mt-6 lg:mt-0">Welcome back,</h1>
+                            <p className="text-sm font-normal italic">{activeUser?.email}!</p>
+                        </div>
+
                         <div className="flex gap-6 flex-wrap mt-6 lg:mt-0">
                             
                             <h2 className="text-xl py-1.5 opacity-80">Active campaigns: ({campaigns.filter(campaigns => campaigns?.status === "Active").length})</h2>

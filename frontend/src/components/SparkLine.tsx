@@ -2,6 +2,16 @@ import { SparkLineProps } from "../types/SparkLineProps";
 import { ResponsiveContainer, AreaChart, Area, XAxis } from 'recharts';
 
 export function SparkLine ({spendLineCharts}: SparkLineProps) {
+    console.log(spendLineCharts, "ALL SPEND INFO")
+    if (!spendLineCharts || spendLineCharts?.length < 1) {
+        return (
+            <div className="w-full h-75 flex items-center flex-col justify-center gap-8 text-center">
+                <p className="-mt-2 font-medium">No metrics recorded yet:</p>
+                <p className="text-sm">Upload a Google Ads CSV or manual metrics to begin tracking!</p>
+            </div>
+        )
+    }
+    
     return (
         <>
         

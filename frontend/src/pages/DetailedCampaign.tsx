@@ -193,21 +193,21 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     return (
         <>
             <main className="max-w-7xl p-6 mx-auto">
-                <Link to={`/dashboard`} className="text-xl cursor-pointer text-indigo-500 underline">Dashboard</Link>
+                <Link to={`/dashboard`} className="text-xl cursor-pointer block mt-4 w-fit group hover:bg-indigo-100 rounded-lg duration-150 px-3 py-1"><i className="fa-solid fa-arrow-left text-indigo-500"></i> Back to dashboard</Link>
                 
                 <div className="flex justify-between items-center">
                     <h1 className="text-4xl mt-24 font-semibold">{selectedCampaign?.campaign_name}</h1>
                     
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 border border-slate-200 px-8 py-4 rounded-lg mt-24 ml-auto bg-slate-100/40">
                         
                         { selectedCampaign?.user_role === "Owner" && (
                     
                             <>
                             <button 
                             onClick={() => setShowingTeam(true)}
-                            className="mt-24 text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-users text-indigo-500"></i> Manage Team</button>
-                            <button 
+                            className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-users text-indigo-500"></i> Manage Team</button>
                             
+                            <button 
                             onClick={() => setAddingMetrics(true)}
                             className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-chart-simple text-indigo-500"></i> Add metrics</button>
                             </>
@@ -232,12 +232,13 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
                         }
                         className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-comment text-indigo-500"></i> Quick insights</button>
 
-
+                        { selectedCampaign?.user_role === "Owner" && (
                         <button 
                         onClick={() => setUploadingCSV(true)}
                         className="text-xl cursor-pointer mr-auto hover:bg-indigo-100 px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-file-csv text-indigo-500"></i> 
                         Google Ads</button>
-
+                        )
+                        }
 
                         <button className="text-xl cursor-pointer mr-auto hover:bg-indigo-100 px-3 py-1 rounded-lg duration-150"
                         onClick={handleRefresh}

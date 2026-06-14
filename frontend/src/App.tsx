@@ -10,11 +10,13 @@ import { campaigns } from './types/campaigns';
 import { newCampaign } from './types/newCampaign';
 import { editedCampaign } from './types/editedCampaign';
 import { DetailedCampaign } from './pages/DetailedCampaign';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
 
 const [activeUser, setActiveUser] = useState<activeUser | null>(null);
 const [campaigns, setCampaigns] = useState<campaigns[]>([]);
+const [loadingAuth, setLoadingAuth] = useState(false);
 
 const signupUser = async (newUser: newUser) => {
   try {
@@ -70,7 +72,7 @@ const checkAuth = async () => {
 
 
   try {
-    
+    setLoadingAuth(true);
     const response = await fetch(`http://localhost:5000/api/auth/check`, {
       method: "GET",
       credentials: "include",
@@ -87,6 +89,8 @@ const checkAuth = async () => {
 
   } catch (error) {
     return console.error(error);
+  } finally {
+    setLoadingAuth(false);
   }
   
 }
@@ -212,17 +216,28 @@ console.log(activeUser)
     <>
       <Routes>
           <Route path='/' element={
-            <PublicRoute activeUser={activeUser!}>
+            <PublicRoute activeUser={activeUser!} loadingAuth={loadingAuth}>
             <Signup signupUser={signupUser}/>
             </PublicRoute>
             }/>
           <Route path='/login' element={
-            <PublicRoute activeUser={activeUser!}>
+            <PublicRoute activeUser={activeUser!} loadingAuth={loadingAuth}>
             <Login loginUser={loginUser}/>
             </PublicRoute>
             } />
-          <Route path='/dashboard' element={<Homepage campaigns={campaigns} addCampaign={addCampaign} updateCampaign={updateCampaign} deleteCampaign={deleteCampaign}/>}/>
-          <Route path='/campaign/:id' element={<DetailedCampaign campaigns={campaigns}/>}/>
+
+          <Route path='/dashboard' element={
+            <ProtectedRoute activeUser={activeUser} loadingAuth={loadingAuth}>
+              <Homepage activeUser={activeUser} campaigns={campaigns} addCampaign={addCampaign} updateCampaign={updateCampaign} deleteCampaign={deleteCampaign}/>
+            </ProtectedRoute>
+            }/>
+
+          <Route path='/campaign/:id' element={
+            <ProtectedRoute activeUser={activeUser} loadingAuth={loadingAuth}>
+              <DetailedCampaign campaigns={campaigns}/>
+            </ProtectedRoute>
+            }/>
+      
       </Routes>
     </>
   )

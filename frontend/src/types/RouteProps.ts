@@ -3,5 +3,6 @@ import { activeUser } from "./activeUser"
 
 export type RouteProps = {
     activeUser: activeUser,
-    children: ReactNode
+    children: ReactNode,
+    loadingAuth: boolean
 }
