@@ -16,8 +16,11 @@ services:
     ports:
       - "5000:5000"
     environment:
-      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@postgres_db:5432/${DB_NAME}
-      PORT: 5000
+      DB_HOST: postgres_db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      PORT: 5432
     depends_on:
       - postgres_db
 
