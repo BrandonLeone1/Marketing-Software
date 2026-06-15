@@ -4,10 +4,12 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm ci --only=production
+RUN npm install
+
+RUN npm install -g tsx
 
 COPY . .
 
 EXPOSE 5000
 
-CMD ["node", "src/server.js"]
+CMD ["node", "src/server.ts"]
