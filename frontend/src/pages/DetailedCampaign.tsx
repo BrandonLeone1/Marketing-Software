@@ -195,10 +195,10 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
             <main className="max-w-7xl p-6 mx-auto">
                 <Link to={`/dashboard`} className="text-xl cursor-pointer block mt-4 w-fit group hover:bg-indigo-100 rounded-lg duration-150 px-3 py-1"><i className="fa-solid fa-arrow-left text-indigo-500"></i> Back to dashboard</Link>
                 
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center flex-wrap">
                     <h1 className="text-4xl mt-24 font-semibold">{selectedCampaign?.campaign_name}</h1>
                     
-                    <div className="flex flex-col gap-2 border border-slate-200 px-8 py-4 rounded-lg mt-24 ml-auto bg-slate-100/40">
+                    <div className="flex md:flex-col flex-wrap gap-2 border border-slate-200 px-8 py-4 rounded-lg mt-24 ml-auto bg-slate-100/40">
                         
                         { selectedCampaign?.user_role === "Owner" && (
                     
@@ -339,7 +339,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
 
                 </section>
 
-                <section className="mt-24">
+                <section className="mt-24 max-w-5xl">
 
                     <h2 className="opacity-70">Ad creatives & Feedback</h2>
 
