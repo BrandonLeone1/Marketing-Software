@@ -8,7 +8,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
     const getTeamMembers = async () => {
         try {
             const token = localStorage.getItem("token")
-            const response = await fetch(`http://localhost:5000/api/campaigns/get-team/${selectedCampaign?.id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/get-team/${selectedCampaign?.id}`, {
                 credentials: "include",
                 headers: {"Authorization": `Bearer ${token}`}
             })
@@ -45,7 +45,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
         
         try {
             const token = localStorage.getItem("token")
-            const response = await fetch(`http://localhost:5000/api/campaigns/remove-member/${selectedCampaign?.id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/remove-member/${selectedCampaign?.id}`, {
             method: "POST",
             credentials: "include",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
@@ -75,7 +75,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
     const handleAddMember = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(`http://localhost:5000/api/campaigns/add-member/${selectedCampaign?.id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/add-member/${selectedCampaign?.id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},

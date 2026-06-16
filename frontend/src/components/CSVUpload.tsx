@@ -84,7 +84,7 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
                         })
                         console.log(normalizedRows);
 
-                        const response = await fetch(`http://localhost:5000/api/metrics/google-ads/add/${campaign_id}`, {
+                        const response = await fetch(`https://api.metricflows.xyz/api/metrics/google-ads/add/${campaign_id}`, {
                             method: "POST",
                             credentials: "include",
                             headers: {"Content-Type": "application/json"},

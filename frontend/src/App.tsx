@@ -21,7 +21,7 @@ const [loadingAuth, setLoadingAuth] = useState(false);
 const signupUser = async (newUser: newUser) => {
   try {
     
-    const response = await fetch(`http://localhost:5000/api/auth/add`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/auth/add`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -45,7 +45,7 @@ const signupUser = async (newUser: newUser) => {
 const loginUser = async (newUser: newUser) => {
   try {
     
-    const response = await fetch(`http://localhost:5000/api/auth/login`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/auth/login`, {
       method: "POST",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -73,7 +73,7 @@ const checkAuth = async () => {
 
   try {
     setLoadingAuth(true);
-    const response = await fetch(`http://localhost:5000/api/auth/check`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/auth/check`, {
       method: "GET",
       credentials: "include",
      
@@ -99,7 +99,7 @@ const getCampaigns = async () => {
   try {
 ;
 
-    const response = await fetch(`http://localhost:5000/api/campaigns/get`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/campaigns/get`, {
       credentials: "include",
       
     });
@@ -122,7 +122,7 @@ const addCampaign = async (newCampaign:newCampaign) => {
   
   
   try {
-    const response = await fetch(`http://localhost:5000/api/campaigns/create`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/campaigns/create`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json"},
@@ -146,7 +146,7 @@ const updateCampaign = async (editedCampaign: editedCampaign, id: number) => {
  
 
   try {
-    const response = await fetch(`http://localhost:5000/api/campaigns/update/${id}`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/campaigns/update/${id}`, {
       method: "PUT",
       credentials: "include",
       headers: {"Content-Type": "application/json"},
@@ -180,7 +180,7 @@ const deleteCampaign = async (id: number) => {
 
 
   try {
-    const response = await fetch(`http://localhost:5000/api/campaigns/delete/${id}`, {
+    const response = await fetch(`https://api.metricflows.xyz/api/campaigns/delete/${id}`, {
       method: "DELETE",
       credentials: "include",
       headers: {"Content-Type": "application/json"},

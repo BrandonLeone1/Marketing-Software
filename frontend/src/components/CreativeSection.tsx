@@ -22,7 +22,7 @@ export function CreativeSection () {
 
     const getCreatives = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/campaigns/get-creatives/${id.id}`, {
+            const response = await fetch(`https://api.metricflows.com/api/campaigns/get-creatives/${id.id}`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -49,7 +49,7 @@ export function CreativeSection () {
                 throw new Error(`Didn't receive a file to upload`)
             };
 
-            const response = await fetch(`http://localhost:5000/api/campaigns/creative-work/upload/${id.id}`, {
+            const response = await fetch(`https://api.metricflows.com/api/campaigns/creative-work/upload/${id.id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: {"Content-Type": "application/json"},
@@ -65,7 +65,7 @@ export function CreativeSection () {
             })
 
             if (s3Response.ok) {
-              const dbResponse = await fetch(`http://localhost:5000/api/campaigns/save-creative/${id.id}`, {
+              const dbResponse = await fetch(`https://api.metricflows.com/api/campaigns/save-creative/${id.id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: {"Content-Type": "application/json"},
@@ -87,7 +87,7 @@ export function CreativeSection () {
     const handleVote = async (creativeID: number) => {
         try {
             
-            const response = await fetch(`http://localhost:5000/api/campaigns/creatives/vote/${creativeID}`, {
+            const response = await fetch(`https://api.metricflows.com/api/campaigns/creatives/vote/${creativeID}`, {
                 method: "PUT",
                 credentials: "include",
                 headers: {"Content-Type": "application/json"}
@@ -108,7 +108,7 @@ export function CreativeSection () {
     const handleDeleteCreative = async (creativeID: number) => {
         try {
             
-            const response = await fetch(`http://localhost:5000/api/campaigns/creatives/delete/${creativeID}`, {
+            const response = await fetch(`https://api.metricflows.com/api/campaigns/creatives/delete/${creativeID}`, {
                 method: "DELETE",
                 credentials: "include",
             });

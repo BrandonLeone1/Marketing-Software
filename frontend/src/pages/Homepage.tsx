@@ -30,7 +30,7 @@ export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaig
     
        
     
-        const response = await fetch(`http://localhost:5000/api/analytics/past-7-spend-per-campaign`, {
+        const response = await fetch(`https://api.metricflows.xyz/api/analytics/past-7-spend-per-campaign`, {
         credentials: "include",
         
      
@@ -57,7 +57,7 @@ const getOverviewData = async () => {
     setIsLoading(true);
     try {
       
-      const response = await fetch(`http://localhost:5000/api/analytics/homepage-overview-7-days`, {
+      const response = await fetch(`https://api.metricflows.xyz/api/analytics/homepage-overview-7-days`, {
         credentials: "include",
     
     })

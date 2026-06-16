@@ -13,7 +13,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
 
     const handleUpdateMetric = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/metrics/update/${metric.id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/metrics/update/${metric.id}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             credentials: "include",

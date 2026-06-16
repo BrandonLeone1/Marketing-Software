@@ -58,7 +58,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
     const getMetrics = async () => {
         
         try {
-           const response = await fetch(`http://localhost:5000/api/metrics/get/${campaign_id}`, {
+           const response = await fetch(`https://api.metricflows.xyz/api/metrics/get/${campaign_id}`, {
             credentials: "include"
             });
 
@@ -82,7 +82,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
     
     const handleAddMetric = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/metrics/create/${campaign_id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/metrics/create/${campaign_id}`, {
             method: "POST",
             credentials: "include",
             headers: {"Content-Type": "application/json"},

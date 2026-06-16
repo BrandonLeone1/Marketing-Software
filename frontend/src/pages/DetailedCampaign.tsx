@@ -42,7 +42,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     const getCampaignSummary = async () => {
         try {
             
-            const response = await fetch(`http://localhost:5000/api/analytics/summary/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/analytics/summary/${selectedCampaign?.id}/?days=${selectedDays}`, {
             credentials: "include",
            
             })
@@ -66,7 +66,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
         
         try {
             
-            const response = await fetch(`http://localhost:5000/api/analytics/trends/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/analytics/trends/${selectedCampaign?.id}/?days=${selectedDays}`, {
                 credentials: "include",
              
             })
@@ -88,7 +88,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
         
         try {
          
-            const response = await fetch(`http://localhost:5000/api/analytics/platform-breakdown/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/analytics/platform-breakdown/${selectedCampaign?.id}/?days=${selectedDays}`, {
             credentials: "include",
             
         });
@@ -153,7 +153,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     const getInsights = async () => {
         setLoadingInsights(true);
         try {
-            const response = await fetch(`http://localhost:5000/api/campaigns/insights/${selectedCampaign?.id}`, {
+            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/insights/${selectedCampaign?.id}`, {
             credentials: "include",
             method: "GET",
         })
