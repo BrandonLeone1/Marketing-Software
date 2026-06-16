@@ -49,6 +49,11 @@ router.post("/add", authLimit, async (req: Request, res: Response) => {
                 VALUES ($1, $2)
                 RETURNING *    
             `, [email, hashedPassword]);
+
+            const addMembership = await pool.query(`
+                INSERT INTO memberships (campaign_id, user_id, user_role)
+                VALUES ($1, $2, $3)    
+            `, [2, newUser.rows[0].id, 'Member'])
     
             generateAndSendToken(newUser.rows[0].id, req, res);
     
