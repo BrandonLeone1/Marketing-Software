@@ -8,5 +8,6 @@ export type HomepageProps = {
     addCampaign: (newCampaign: newCampaign) => Promise<void>,
     updateCampaign: (editedCampaign: editedCampaign, id: number) => Promise<void>,
     deleteCampaign: (id: number) => Promise<void>,
-    activeUser: activeUser | null
+    activeUser: activeUser | null,
+    getCampaigns: () => Promise<void>
 }

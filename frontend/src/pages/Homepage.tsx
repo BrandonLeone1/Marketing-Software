@@ -6,7 +6,7 @@ import { KPICard } from "../components/KPICard";
 import { overviewData } from "../types/overviewData";
 import { newCampaign } from "../types/newCampaign";
 
-export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaign, activeUser}:HomepageProps) {
+export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaign, activeUser, getCampaigns}:HomepageProps) {
     
     const initialState: spendLineCharts = {
         spend: 0,
@@ -92,6 +92,7 @@ const handleAddCampaign = async () => {
 useEffect(() => {
     past7SpendLinecharts();
     getOverviewData();
+    getCampaigns();
 }, []);
 
 

@@ -229,7 +229,7 @@ console.log(activeUser)
 
           <Route path='/dashboard' element={
             <ProtectedRoute activeUser={activeUser} loadingAuth={loadingAuth}>
-              <Homepage activeUser={activeUser} campaigns={campaigns} addCampaign={addCampaign} updateCampaign={updateCampaign} deleteCampaign={deleteCampaign}/>
+              <Homepage getCampaigns={getCampaigns} activeUser={activeUser} campaigns={campaigns} addCampaign={addCampaign} updateCampaign={updateCampaign} deleteCampaign={deleteCampaign}/>
             </ProtectedRoute>
             }/>
 
