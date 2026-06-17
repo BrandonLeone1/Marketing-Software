@@ -11,6 +11,7 @@ import { newCampaign } from './types/newCampaign';
 import { editedCampaign } from './types/editedCampaign';
 import { DetailedCampaign } from './pages/DetailedCampaign';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { Security } from './pages/Security';
 
 function App() {
 
@@ -237,6 +238,12 @@ console.log(activeUser)
               <DetailedCampaign campaigns={campaigns}/>
             </ProtectedRoute>
             }/>
+
+          <Route path='/security' element={
+            <PublicRoute activeUser={activeUser!} loadingAuth={loadingAuth}>
+              <Security />
+            </PublicRoute>
+          }/>
       
       </Routes>
     </>

@@ -42,7 +42,7 @@ router.post("/add", authLimit, async (req: Request, res: Response) => {
                 return res.status(400).json({sucess: false, message: "Invalid email or password"});
             };
     
-            const hashedPassword = await bcrypt.hash(password, 10);
+            const hashedPassword = await bcrypt.hash(password, 13);
     
             const newUser = await pool.query(`
                 INSERT INTO users (email, password_hashed)

@@ -74,8 +74,11 @@ export function Signup ({signupUser}: SignupProps) {
                         onClick={handleClick}
                         className="cursor-pointer w-full bg-indigo-500 text-white py-1.5 rounded-xl shadow-md font-medium text-lg hover:shadow-lg duration-150 hover:bg-indigo-600">Signup</button>
                     </div>
-                    
-                        <p className="opacity-65 font-medium ">Have an account? | <Link to={`/login`} className="underline hover:opacity-67 duration-150">Login here</Link></p>
+                        
+                        <div className="flex justify-between">
+                        <p className="opacity-65 font-medium">Have an account? | <Link to={`/login`} className="underline hover:opacity-80 duration-150">Login here</Link></p>
+                        <Link to={`/security`} className="opacity-65 font-medium underline hover:opacity-53 duration-150">Security & Architecture</Link>
+                        </div>
                 </section>
             </main>
 
