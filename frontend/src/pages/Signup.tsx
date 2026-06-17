@@ -73,12 +73,14 @@ export function Signup ({signupUser}: SignupProps) {
                         <button 
                         onClick={handleClick}
                         className="cursor-pointer w-full bg-indigo-500 text-white py-1.5 rounded-xl shadow-md font-medium text-lg hover:shadow-lg duration-150 hover:bg-indigo-600">Signup</button>
+                    
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-0 mt-2 justify-between flex-wrap">
+                            <p className="opacity-65 font-medium">Have an account? | <Link to={`/login`} className="underline hover:opacity-80 duration-150 text-indigo-500">Login</Link></p>
+                            <Link to={`/security`} className="opacity-60 font-medium underline hover:opacity-53 duration-150">Security & Architecture</Link>
+                        </div>
                     </div>
                         
-                        <div className="flex justify-between">
-                        <p className="opacity-65 font-medium">Have an account? | <Link to={`/login`} className="underline hover:opacity-80 duration-150">Login here</Link></p>
-                        <Link to={`/security`} className="opacity-65 font-medium underline hover:opacity-53 duration-150">Security & Architecture</Link>
-                        </div>
+                        
                 </section>
             </main>
 

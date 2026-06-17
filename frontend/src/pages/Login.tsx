@@ -60,7 +60,7 @@ export function Login ({loginUser}: LoginProps) {
                     onClick={handleClick}
                     className="cursor-pointer w-full bg-indigo-500 text-white py-1.5 rounded-xl shadow-md font-medium text-lg hover:shadow-lg duration-150 hover:bg-indigo-600">Login</button>
                 
-                <p className="opacity-65 font-medium">Need an account? | <Link to={`/`} className="underline hover:opacity-67 duration-150">Signup here</Link></p>
+                <p className="opacity-65 font-medium">Need an account? | <Link to={`/`} className="underline hover:opacity-67 duration-150 text-indigo-500">Signup</Link></p>
                 </div>
 
             </main>
