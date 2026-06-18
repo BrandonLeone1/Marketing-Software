@@ -48,7 +48,7 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                             ><i className="fa-solid fa-trash text-xl text-rose-800 cursor-pointer opacity-75 hover:opacity-100 duration-150"></i></button>
                             
                             { deletingCampaign && (
-                                <div className="flex flex-col mx-auto border p-2 rounded-xl">
+                                <div className="flex flex-col mx-auto border border-rose-800 p-4 rounded-xl">
                                     <p className="max-w-[30ch] text-xl font-medium">Confirm delete</p>
 
                                     <div className="flex gap-6 text-lg">    
@@ -118,7 +118,7 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                         
                         <button 
                         onClick={handleUpdateCampaign}
-                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:opacity-90">Update</button>
+                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600">Update</button>
                     </div>
                 </div>
             )

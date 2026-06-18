@@ -133,7 +133,7 @@ useEffect(() => {
 
                         <button 
                         onClick={handleAddCampaign}
-                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-lg text-white font-medium shadow-md hover:shadow-lg duration-150 hover:opacity-90">Create</button>
+                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-lg text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600">Create</button>
                     </div>
                 </div>
             )
@@ -147,7 +147,7 @@ useEffect(() => {
                         
                         <div>
                             <h1 className="text-4xl py-1.5 mt-6 lg:mt-0">Welcome back,</h1>
-                            <p className="text-sm font-normal italic">{activeUser?.email}!</p>
+                            <p className="text-base font-normal">{activeUser?.email}!</p>
                         </div>
 
                         <div className="flex gap-6 flex-wrap mt-6 lg:mt-0">
@@ -155,7 +155,7 @@ useEffect(() => {
                             <h2 className="text-xl py-1.5 opacity-80">Active campaigns: ({campaigns.filter(campaigns => campaigns?.status === "Active").length})</h2>
                             <button 
                             onClick={() => setAddingCampaign(true)}
-                            className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:opacity-90"><i className="fa-solid fa-plus"></i> Create new campaign</button>
+                            className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600"><i className="fa-solid fa-plus"></i> Create new campaign</button>
                         </div>
                     </div>
 

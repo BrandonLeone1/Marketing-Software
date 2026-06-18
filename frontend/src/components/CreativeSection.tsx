@@ -175,7 +175,7 @@ export function CreativeSection () {
                 </div>
 
                 <button 
-                className="mt-4.5 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:opacity-90 duration-150"
+                className="mt-4.5 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:bg-indigo-600 duration-150"
                 onClick={handleUpload}>Upload</button>
             </div>
 

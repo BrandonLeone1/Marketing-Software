@@ -37,7 +37,7 @@ export function Signup ({signupUser}: SignupProps) {
                 
                 </section>
 
-                <section className="mx-auto border md:order-2 shadow-md  w-full border-slate-400 h-full p-8 rounded-lg">
+                <section className="mx-auto border md:order-2 shadow-md bg-white w-full border-slate-300 h-full p-8 rounded-lg">
                     
                     <div className="flex gap-4 mx-auto flex-col justify-center h-full p-6 max-w-[60ch]">
                         <h2 className="text-3xl text-center font-semibold mb-4">Create your account</h2>

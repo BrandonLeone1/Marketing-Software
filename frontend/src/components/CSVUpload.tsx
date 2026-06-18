@@ -112,7 +112,7 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
     return (
 
     <div className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 flex items-center justify-center p-6">
-        <div className="bg-white p-8 max-w-5xl rounded-lg flex flex-col gap-2 max-h-150 overflow-y-auto lg:min-w-xl">
+        <div className="bg-white p-8 max-w-5xl rounded-lg flex flex-col gap-6 max-h-150 overflow-y-auto lg:min-w-xl">
             
             <button
             className="underline opacity-70 block ml-auto cursor-pointer hover:opacity-100 mb-3 duration-150"
@@ -128,7 +128,7 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
                 />
             </label>
 
-            <button onClick={handleCSVUpload}>Upload</button>
+            <button onClick={handleCSVUpload} className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:bg-indigo-600 duration-150">Upload</button>
         </div>
     </div>
     

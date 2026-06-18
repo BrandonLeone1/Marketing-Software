@@ -233,7 +233,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
 
                     <button
                     onClick={handleAddMetric}
-                    className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-2.5 rounded text-white hover:opacity-90 duration-150"
+                    className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-2.5 rounded-lg text-white hover:bg-indigo-600 duration-150"
                     >Add</button>
 
                 </>

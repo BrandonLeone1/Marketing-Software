@@ -124,7 +124,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
                 </label>
                 <button 
                 onClick={handleAddMember}
-                className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:opacity-90 duration-150">Add</button>
+                className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:bg-indigo-600 duration-150">Add</button>
 
                 <div className="mt-6">
                 { teamMembers.map(teamMembers => (
