@@ -31,7 +31,7 @@ export function Security() {
         <>
 
             <div className="mx-auto lg:px-12 py-6">
-            <Link to={"/"} className="text-lg hover:bg-indigo-100 rounded-lg duration-150 px-3 py-1.5"><i className="fa-solid fa-arrow-left text-indigo-500"></i> Back to signup</Link>
+            <Link to={"/"} className="text-lg hover:bg-indigo-100 rounded-lg duration-150 px-3 py-1.5"><i className="fa-solid fa-arrow-left text-indigo-600"></i> Back to signup</Link>
             </div>
 
             <section className="max-w-5xl mx-auto p-6">

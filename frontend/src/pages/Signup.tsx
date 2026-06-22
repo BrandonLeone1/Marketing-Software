@@ -24,25 +24,34 @@ export function Signup ({signupUser}: SignupProps) {
     return (
         <>
 
-            <main className="grid grid-cols-1 md:grid-cols-2 xl:h-screen md:h-screen w-full gap-6 mx-auto p-8">
+            <main className="grid grid-cols-1 md:grid-cols-2 min-h-screen w-full gap-6 lg:gap-12 mx-auto p-6 md:p-10 max-w-7xl">
                 
-                <section className="bg-slate-950 shadow-md md:order-2 order-1 w-full text-white h-full p-8 rounded-lg">
+                <section className="bg-linear-to-br from-slate-900 to-slate-950 border border-slate-800 shadow-xl md:order-1 order-1 w-full text-white flex items-center justify-center p-8 md:p-12 rounded-2xl">
                 
-                <div className="flex gap-6 flex-col p-6 justify-center h-full xl:-mt-6 max-w-[60ch]">
-                    <h1 className="text-4xl font-semibold">Built To Organize <span className="font-light text-slate-400">Campaigns</span></h1>
-                    <p className="font-medium opacity-70"><i className="fa-solid fa-exclamation text-slate-400"></i> Marketing campaigns are difficult to track while keeping everyone on the same page - learned first hand throughout my experience.</p>
-                    <p className="font-medium opacity-70"><i className="fa-solid fa-check text-emerald-600"></i> Introducing a collaborative marketing campaign tracking solution. Keep the research team and the creatives on the same page all in one service.</p>
-
+                <div className="flex gap-8 flex-col max-w-[48ch] py-8">
+                    
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">Built To Organize <span className="font-normal bg-linear-to-r from-slate-400 to-slate-200 bg-clip-text text-transparent">Campaigns</span></h1>
+                    <div className="space-y-5 text-sm md:text-base leading-relaxed text-slate-300">
+                        <div className="flex gap-4 items-start">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-400"><i className="fa-solid fa-exclamation"></i></span>
+                            <p>Marketing campaigns are difficult to track while keeping everyone on the same page—learned first hand throughout my experience.</p>
+                        </div>
+                        <div className="flex gap-4 items-start">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-950/50 border border-emerald-800/60 text-xs text-emerald-400"><i className="fa-solid fa-check"></i></span>
+                            <p>Introducing a collaborative marketing campaign tracking solution. Keep the research team and the creatives on the same page all in one service.</p>
+                        </div>
+                    </div>
+                
                 </div>
                 
                 </section>
 
-                <section className="mx-auto border md:order-2 shadow-md bg-white w-full border-slate-300 h-full p-8 rounded-lg">
+                <section className="mx-auto border order-2 md:order-2 shadow-sm bg-white w-full border-zinc-200 flex items-center justify-center p-8 md:p-12 rounded-2xl">
                     
-                    <div className="flex gap-4 mx-auto flex-col justify-center h-full p-6 max-w-[60ch]">
-                        <h2 className="text-3xl text-center font-semibold mb-4">Create your account</h2>
+                    <div className="flex gap-5 w-full flex-col justify-center max-w-[42ch] py-4">
+                        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-2">Create your account</h2>
                         
-                        <label className="text-xs font-semibold text-slate-600 uppercase tracking-wider block" htmlFor="new-email">Email
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-email">Email
                             <input 
                             type="email"
                             id="new-email"
@@ -52,11 +61,12 @@ export function Signup ({signupUser}: SignupProps) {
                                 ...prev,
                                 email: e.target.value
                             }))}
-                            className="border-slate-300 w-full border px-2 py-3 text-base mt-1 mb-1 rounded-xl opacity-70 focus:ring-4 focus:ring-indigo-500 focus:outline-0"
+                            
+                            className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
 
-                        <label className="text-xs font-semibold text-slate-600 uppercase tracking-wider block" htmlFor="new-password">Password
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-password">Password
                             <input 
                             type="password"
                             id="new-password"
@@ -66,17 +76,17 @@ export function Signup ({signupUser}: SignupProps) {
                                 ...prev,
                                 password: e.target.value
                             }))}
-                            className="border-slate-300 w-full border px-2 py-3 text-base rounded-xl mt-1 mb-1  opacity-70 focus:ring-4 focus:ring-indigo-500 focus:outline-0"
+                            className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
 
                         <button 
                         onClick={handleClick}
-                        className="cursor-pointer w-full bg-indigo-500 text-white py-1.5 rounded-xl shadow-md font-medium text-lg hover:shadow-lg duration-150 hover:bg-indigo-600">Signup</button>
+                        className="w-full mt-2 cursor-pointer bg-indigo-600 text-white py-2.5 px-4 rounded-lg shadow-sm font-semibold text-sm tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99] focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign up</button>
                     
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-0 mt-2 justify-between flex-wrap">
-                            <p className="opacity-65 font-medium">Have an account? | <Link to={`/login`} className="underline hover:opacity-80 duration-150 text-indigo-500">Login</Link></p>
-                            <Link to={`/security`} className="opacity-60 font-medium underline hover:opacity-53 duration-150">Security & Architecture</Link>
+                        <div className="flex items-center justify-between flex-wrap gap-y-2 mt-4 text-xs text-zinc-500 font-medium tracking-wide">
+                            <p>Have an account? <Link to={`/login`} className="text-indigo-600 font-semibold hover:underline ml-1">Log in</Link></p>
+                            <Link to={`/security`} className="text-zinc-400 hover:text-zinc-600 transition hover:underline">Security & Architecture</Link>
                         </div>
                     </div>
                         

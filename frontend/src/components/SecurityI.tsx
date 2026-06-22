@@ -14,7 +14,7 @@ export function SecurityI ({SecurityItem}: props) {
         <div className="flex flex-col gap-3 items-baseline ">
             <button 
             onClick={() => setShowDescription(prev => !prev)}
-            className={`cursor-pointer font-medium text-xl block mr-auto hover:text-indigo-500 ${showDescription && "text-indigo-500"}`}>• {SecurityItem.title} <i className={`fa-solid fa-angle-down duration-150 ${showDescription && "rotate-180 duration-150"}`}></i></button>
+            className={`cursor-pointer font-medium text-xl block mr-auto hover:text-indigo-600 ${showDescription && "text-indigo-600"}`}>• {SecurityItem.title} <i className={`fa-solid fa-angle-down duration-150 ${showDescription && "rotate-180 duration-150"}`}></i></button>
             
             
                 <div className={`transition-all opacity-0 max-h-0 duration-150 ease-in-out overflow-hidden ${showDescription && "opacity-100 max-h-full lg:max-h-80 duration-150"}`}>

@@ -24,14 +24,14 @@ export function Login ({loginUser}: LoginProps) {
     return (
         <>
         
-            <main className="flex items-center justify-center h-screen p-6">
-                <div className="p-8 bg-white rounded-lg shadow-xl shadow-slate-100 border border-slate-50 flex flex-col gap-4">
-                    <h1 className="text-3xl font-semibold mb-6 text-center">Login to continue</h1>
+            <main className="flex items-center justify-center min-h-screen bg-zinc-50 p-6">
+                <div className="w-full max-w-105 p-8 md:p-10 bg-white rounded-2xl border border-zinc-200 shadow-sm flex flex-col gap-5">
+                    <h1 className="text-2xl font-bold tracking-tight text-zinc-900 mb-2 text-center">Log in to continue</h1>
                     
-                    <label className="text-xs font-semibold text-slate-600 uppercase tracking-wider block" htmlFor="existing-email">Email
+                    <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="existing-email">Email
                         <input
                         id="existing-email" 
-                        className="border-slate-300 w-full border px-2 py-3 mt-1 mb-1 text-base focus:ring-4 focus:ring-indigo-500 focus:outline-0 rounded-xl opacity-70"
+                        className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                         placeholder="example@email.com"
                         type="email"
                         value={newUser.email}
@@ -42,12 +42,12 @@ export function Login ({loginUser}: LoginProps) {
                         />
                     </label>
                     
-                    <label className="text-xs font-semibold text-slate-600 uppercase tracking-wider block" htmlFor="existing-password">Password
+                    <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="existing-password">Password
                         <input
                         id="existing-password" 
                         type="password"
                         placeholder="Your password"
-                        className="border-slate-300 w-full border px-2 py-3 mt-1 mb-1 text-base focus:ring-4 focus:ring-indigo-500 focus:outline-0 rounded-xl opacity-70"
+                        className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                         value={newUser.password}
                         onChange={(e) => setNewUser(prev => ({
                             ...prev,
@@ -58,9 +58,9 @@ export function Login ({loginUser}: LoginProps) {
 
                     <button 
                     onClick={handleClick}
-                    className="cursor-pointer w-full bg-indigo-500 text-white py-1.5 rounded-xl shadow-md font-medium text-lg hover:shadow-lg duration-150 hover:bg-indigo-600">Login</button>
+                    className="w-full cursor-pointer mt-2 bg-indigo-600 text-white py-2.5 px-4 rounded-lg shadow-sm font-semibold text-sm tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99] focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Log in</button>
                 
-                <p className="opacity-65 font-medium">Need an account? | <Link to={`/`} className="underline hover:opacity-67 duration-150 text-indigo-500">Signup</Link></p>
+                    <p className="text-xs text-zinc-500 text-center font-medium tracking-wide mt-2">Need an account? <Link to={`/`} className="text-indigo-600 font-semibold hover:underline ml-1">Sign up</Link></p>
                 </div>
 
             </main>
