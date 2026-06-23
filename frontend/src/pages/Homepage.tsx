@@ -99,11 +99,11 @@ useEffect(() => {
     return (
         <>
             { addingCampaign && (
-                <div className="fixed inset-0 bg-black/80 z-90 backdrop-blur-sm flex items-center justify-center p-6">
-                    <div className="bg-linear-to-br from-slate-200 to-white p-6 flex flex-col gap-6 relative rounded-lg">
-                        <button onClick={() => setAddingCampaign(false)} className="ml-auto absolute right-3 top-3 cursor-pointer underline opacity-70 hover:opacity-100 duration-150">Cancel</button>
+                <div className="fixed inset-0 bg-zinc-950/40 z-50 backdrop-blur-md flex items-center justify-center p-4 md:p-6">
+                    <div className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col gap-5 relative rounded-2xl shadow-xl w-full max-w-md">
+                        <button onClick={() => setAddingCampaign(false)} className="absolute right-4 top-4 text-xs font-medium text-zinc-400 hover:text-zinc-600 transition">Cancel</button>
 
-                        <label htmlFor="new-campaign-name"><span className="text-xl">Name for new campaign:</span>
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-campaign-name">Name for new campaign
                             <input 
                             type="text"
                             id="new-campaign-name"
@@ -113,11 +113,11 @@ useEffect(() => {
                                 ...prev,
                                 campaign_name: e.target.value
                             }))}
-                            className="border border-slate-300 px-2 py-3 rounded-xl w-full mt-3 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
 
-                        <label htmlFor="new-campaign-budget"><span className="text-xl">Budget for new campaign:</span>
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-campaign-budget">Budget for new campaign
                             <input 
                             type="number"
                             id="new-campaign-budget"
@@ -127,58 +127,55 @@ useEffect(() => {
                                 ...prev,
                                 budget: e.target.value
                             }))}
-                            className="border border-slate-300 px-2 py-3 rounded-xl w-full mt-3 focus:outline-0 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                            className="w-full mt-1.5 px-3 py-2.5 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 placeholder-zinc-400 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
 
                         <button 
                         onClick={handleAddCampaign}
-                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-lg text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600">Create</button>
+                        className="w-full mt-2 bg-indigo-600 cursor-pointer text-white py-2.5 px-4 rounded-lg shadow-sm font-semibold text-sm tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99] focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create campaign</button>
                     </div>
                 </div>
             )
 
             }
 
-            <main className="mx-auto max-w-6xl p-6">
+            <main className="mx-auto max-w-7xl min-h-screen bg-zinc-50/50 p-6 md:p-10">
                 <section>
                     
-                    <div className="flex flex-wrap font-semibold mt-20 items-center justify-between">
+                    <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between border-b border-zinc-200/80 pb-6 mb-8">
                         
                         <div>
-                            <h1 className="text-4xl py-1.5 mt-6 lg:mt-0">Welcome back,</h1>
-                            <p className="text-base font-normal">{activeUser?.email}!</p>
+                            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900">Welcome back</h1>
+                            <p className="text-sm font-medium text-zinc-500 mt-1">{activeUser?.email}</p>
                         </div>
 
-                        <div className="flex gap-6 flex-wrap mt-6 lg:mt-0">
+                        <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                            <span className="inline-flex items-center text-xs font-semibold px-2.5 py-1 bg-zinc-100 text-zinc-700 rounded-full border border-zinc-200/60">
+                            Active: {campaigns.filter(campaign => campaign?.status === "Active").length}
+                            </span>
                             
-                            <h2 className="text-xl py-1.5 opacity-80">Active campaigns: ({campaigns.filter(campaigns => campaigns?.status === "Active").length})</h2>
                             <button 
                             onClick={() => setAddingCampaign(true)}
-                            className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600"><i className="fa-solid fa-plus"></i> Create new campaign</button>
+                            className="inline-flex items-center gap-2 bg-indigo-600 text-white py-2 px-3.5 rounded-lg shadow-sm font-semibold text-xs tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99]"><i className="fa-solid fa-plus text-[10px]"></i> New Campaign</button>
                         </div>
+
                     </div>
 
-                    <div className="mt-24">
-                        
-                        
+                    <div>
                         { campaigns.length < 1 && (
-                            <>
-                                <p className="mt-12 text-lg max-w-[65ch] opacity-80">You are not a member of any campaigns. Create one to get started! From there add teammates and stay on top of your work. Upload creative work for A/B testing and team feedback, detailed interval-based campaign breakdown and more.</p>
-                               
-                            </>
-                        )
-
-                        }
-                        
+                            <div className="bg-white border border-dashed border-zinc-300 p-8 text-center rounded-xl my-6">
+                            <p className="text-sm text-zinc-500 max-w-[50ch] mx-auto leading-relaxed">You are not a member of any campaigns. Create one to get started, invite teammates, and unlock split testing controls.</p>
+                            </div>
+                        )}
                     </div>
 
                 </section>
                 
-                <section>
-                    <h3 className="mt-6 opacity-70">All campaigns overview (last 7 days)</h3>
+                <section className="mb-10">
+                    <h3 className="text-xs font-semibold tracking-widest text-zinc-400 uppercase">Performance Overview (7D)</h3>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
                     
                         <KPICard overviewData={overviewData} title="spend" isLoading={isLoading}/>
                         <KPICard overviewData={overviewData} title="roas" isLoading={isLoading}/>
@@ -187,7 +184,7 @@ useEffect(() => {
 
                 </section>
 
-                <section className="mt-24 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <section className="border-t border-zinc-200/80 pt-8 mt-4 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     { campaigns.map(campaigns => (
                         <CampaignCard key={campaigns.id} campaign={campaigns} spendLineCharts={spendLineCharts[campaigns.id]} updateCampaign={updateCampaign} deleteCampaign={deleteCampaign}/>
                     ))

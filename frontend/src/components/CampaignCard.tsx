@@ -39,29 +39,38 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
     return (
         <>
             { editingCampaign && (
-                <div className="fixed inset-0 bg-black/80 z-90 backdrop-blur-sm flex items-center justify-center p-6">
-                    <div className="bg-white p-6 flex flex-col gap-6 rounded-lg">
+                <div className="fixed inset-0 bg-zinc-950/40 z-50 backdrop-blur-md flex items-center justify-center p-4 md:p-6">
+                    <div className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col gap-5 relative rounded-2xl shadow-xl w-full max-w-md">
                         
-                        <div className="flex justify-between">
-                            <button
-                            onClick={() => setDeletingCampaign(true)}
-                            ><i className="fa-solid fa-trash text-xl text-rose-800 cursor-pointer opacity-75 hover:opacity-100 duration-150"></i></button>
+                        <div className="flex items-center justify-between border-b border-zinc-100 pb-4">
+                            <h3 className="text-sm font-semibold text-zinc-900">Edit Campaign</h3>
+
+                            <div className="flex items-center gap-4">
+                                <button
+                                onClick={() => setDeletingCampaign(true)}
+                                className="text-zinc-400 hover:text-rose-600 transition"
+                                ><i className="fa-solid fa-trash text-sm"></i></button>
+                                
+                                <button
+                                onClick={() => setEditingCampaign(false)}
+                                className="text-xs font-medium text-zinc-400 hover:text-zinc-600 transition"
+                                >Cancel</button>
+                            </div>
+
+                            <p className="text-sm text-zinc-500 -mt-2">Modifying <span className="font-semibold text-zinc-800">{campaign.campaign_name}</span></p>
+                            
                             
                             { deletingCampaign && (
-                                <div className="flex flex-col mx-auto border border-rose-800 p-4 rounded-xl">
-                                    <p className="max-w-[30ch] text-xl font-medium">Confirm delete</p>
-
-                                    <div className="flex gap-6 text-lg">    
-                                       
-                                        <button onClick={() => setDeletingCampaign(false)} className="opacity-70 hover:opacity-100 duration-150 underline cursor-pointer">Cancel</button>
+                                <div className="flex flex-col gap-3 bg-rose-50/50 border border-rose-100 p-4 rounded-xl my-2">
+                                    <p className="text-xs font-semibold text-rose-800">Are you absolutely sure?</p>
+                                    <div className="flex items-center gap-3">    
+                                        <button onClick={() => setDeletingCampaign(false)} className="px-3 py-1.5 text-xs font-medium text-zinc-600 bg-white border border-zinc-200 rounded-lg hover:bg-zinc-50 transition">Cancel</button>
                                         <button 
                                         onClick={handleDeleteClick}
-                                        className="underline text-rose-800 cursor-pointer opacity-70 hover:opacity-100 duration-150">Delete</button>
+                                        className="px-3 py-1.5 text-xs font-medium text-white bg-rose-600 rounded-lg hover:bg-rose-700 transition shadow-sm">Delete Campaign</button>
                                     </div>
-
                                 </div>
                             )
-
                             }
                             
                             
@@ -70,10 +79,8 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                             className="ml-auto cursor-pointer underline opacity-70 hover:opacity-100 duration-150"
                             >Cancel</button>
                         </div>
-
-                        <p className="text-lg font-medium -mt-3">You are editing your campaign: {campaign.campaign_name}</p>
                         
-                        <label htmlFor="new-campaign-name">New name?
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-campaign-name">Campaign Name
                             <input 
                             type="text"
                             id="new-campaign-name"
@@ -83,11 +90,11 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                                 ...prev,
                                 campaign_name: e.target.value
                             }))}
-                            className="border border-slate-300 p-2 rounded-xl w-full mt-2"
+                            className="w-full mt-1.5 px-3 py-2 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
                         
-                        <label htmlFor="new-status">New status?
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-status">Status
                             <select
                             value={editedCampaign.status}
                             id="new-status"
@@ -95,14 +102,14 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                                 ...prev,
                                 status: e.target.value
                             }))} 
-                            className="border border-slate-300 p-2 rounded-xl w-full mt-2"
+                            className="w-full mt-1.5 px-3 py-2 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             >
                                 <option value={`Active`}>Active</option>
                                 <option value={`Paused`}>Paused</option>
                             </select>
                         </label>
 
-                        <label htmlFor="new-budget">New budget?
+                        <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-budget">Budget
                             <input 
                             type="number"
                             id="new-budget"
@@ -112,52 +119,65 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                                 ...prev,
                                 budget: e.target.value
                             }))}
-                            className="border border-slate-300 p-2 rounded-xl w-full mt-2"
+                            className="w-full mt-1.5 px-3 py-2 text-sm bg-zinc-50/50 border border-zinc-200 rounded-lg text-zinc-900 transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 focus:outline-none"
                             />
                         </label>
                         
                         <button 
                         onClick={handleUpdateCampaign}
-                        className="text-xl cursor-pointer bg-indigo-500 px-4 py-1.5 rounded-xl text-white font-medium shadow-md hover:shadow-lg duration-150 hover:bg-indigo-600">Update</button>
+                        className="w-full mt-2 bg-indigo-600 text-white py-2.5 px-4 rounded-lg shadow-sm font-semibold text-sm tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99] focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save changes</button>
                     </div>
                 </div>
             )
 
             }
 
-            <div className="flex flex-col gap-6 border bg-white border-slate-100 rounded-lg p-6 w-full h-full shadow-sm">
+            <div className="flex flex-col justify-between bg-white border border-zinc-200 rounded-xl p-5 w-full min-h-85 shadow-sm hover:shadow-md transition duration-200">
                 
-                <div className="flex justify-between">
-                    <h3 className="text-lg font-medium truncate">{campaign.campaign_name}</h3>
-                    <p className={`${campaign.status === "Active" ? "bg-green-100 w-fit px-4 py-1 rounded-xl" : "bg-yellow-50 px-4 py-1 rounded-xl"} opacity-90`}>{campaign.status}</p>
+                <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-base font-bold tracking-tight text-zinc-900 truncate max-w-[70%]">{campaign.campaign_name}</h3>
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold tracking-wide shrink-0 ${
+                    campaign.status === "Active" 
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200/60" 
+                    : "bg-zinc-100 text-zinc-600 border border-zinc-200"
+                    }`}>{campaign.status}</span>
                 </div>
 
-                <p className="text-sm opacity-60 -mb-3">Spend</p>
-                <SparkLine spendLineCharts={spendLineCharts}/>
-                
-                <div className="flex justify-between -mt-3 text-sm opacity-60">
-                    <p>7 day</p>
-                    <p>Spend</p>
-                    <p>7 day</p>
+                <div className="my-2">
+                    <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">Spend History</p>
+                    <div className="h-20 w-full flex flex-col justify-center">
+                        <SparkLine spendLineCharts={spendLineCharts}/>
+                    </div>
+                    <div className="flex justify-between text-[10px] font-medium text-zinc-400 tracking-tight mt-1 px-0.5">
+                        <p>7D Ago</p>
+                        <p>Today</p>
+                    </div>
                 </div>
 
-                <div className="opacity-90 font-medium gap-2 flex flex-col">
-                <p className="opacity-80">Budget:</p>
-                <p className="text-lg">${campaign.budget}</p>
+                <div className="border-t border-zinc-100 pt-3 mt-1 flex items-center justify-between">
+                    <div>
+                        <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">Budget</p>
+                        <p className="text-base font-bold text-zinc-900 mt-0.5">${Number(campaign.budget).toLocaleString()}</p>
+                    </div>
+                    <div className="text-right">
+                        <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">Created</p>
+                        <p className="text-xs font-medium text-zinc-500 mt-0.5">{campaign.created_at.split("T")[0]}</p>
+                    </div>
                 </div>
-                <p className="opacity-70 -mt-3">Created: {campaign.created_at.split("T")[0]}</p>
-                <hr className="border-slate-300 border opacity-85 appearance-none h-0.5 rounded-xl mt-3 bg-slate-300"/>
                 
-                <div className="flex justify-between items-center">
-                    <Link to={`/campaign/${campaign.id}`} className="font-medium -mt-1 duration-150 w-fit text-indigo-500 hover:underline" aria-label="An in-depth, campaign-specific dashboard">View insights <i className="fa-solid fa-arrow-right"></i></Link>
+                <div className="border-t border-zinc-100 pt-3 flex justify-between items-center mt-2">
+                    <Link to={`/campaign/${campaign.id}`} className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition" aria-label="An in-depth, campaign-specific dashboard">
+                    View insights <i className="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-0.5"></i>
+                    </Link>
                     { campaign.user_role === "Owner" && (
                         <button
                         onClick={() => setEditingCampaign(true)} aria-label="Settings button"
-                        ><i className="fa-solid fa-gear text-xl cursor-pointer text-slate-700 hover:rotate-90 duration-200"></i></button>
+                        className="text-zinc-400 hover:text-zinc-600 focus:outline-none transition-colors"
+                        ><i className="fa-solid fa-gear text-sm cursor-pointer hover:rotate-45 transition-transform duration-300"></i></button>
                     )
-
                     }
                 </div>
+                
             </div>
         </>
     )
