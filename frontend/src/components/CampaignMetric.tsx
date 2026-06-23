@@ -45,104 +45,110 @@ export function CampaignMetric ({metric, setMetrics}: props) {
  
     return (
         <>
-            <div className="w-full py-2 border border-slate-300 px-3 rounded flex justify-between">
+            <div className="w-full border border-zinc-200/80 rounded-xl bg-white shadow-sm transition-all overflow-hidden">
                 
                 { !editingMetric ? (
-                <>
+                <div className="p-4 flex items-center justify-between hover:bg-zinc-50/50 transition-colors">
                 
-                <div className="flex flex-col gap-2">
-                    <p className="text-lg">{metric.platform}</p>
-                    <p className="opacity-70">{metric.metric_date}</p>
-                </div>
-                <div>
-                    <button 
-                    onClick={() => setEditingMetric(true)}
-                    className="cursor-pointer text-indigo-500 hover:opacity-80 duration-150" aria-label="Edit campaign metric"><i className="fa-solid fa-pen-to-square text-xl"></i></button>
-                </div>
-                    
-                </>
-                ) : (
-                    <>
-
+                    <div className="flex flex-col gap-1">
+                        <p className="text-sm font-semibold text-zinc-800">{metric.platform}</p>
+                        <p className="text-xs font-medium text-zinc-400">{metric.metric_date}</p>
+                    </div>
                     <div>
-                        <button
-                        onClick={() => setEditingMetric(false)}
-                        className="block mb-1 ml-auto cursor-pointer underline opacity-70 hover:opacity-100 duration-150"
-                        >Cancel</button>
+                        <button 
+                        onClick={() => setEditingMetric(true)}
+                        className="cursor-pointer p-2 rounded-lg text-zinc-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all" 
+                        aria-label="Edit campaign metric"
+                        >
+                        <i className="fa-solid fa-pen-to-square text-base"></i>
+                        </button>
+                    </div>
                     
+                </div>
+                ) : (
+                    <div className="p-5 bg-zinc-50/50 border-t border-zinc-100 flex flex-col gap-4">
 
-                        <label htmlFor="updated-clicks"><span className="font-medium">New clicks?</span>
-                            <input 
-                            type="number"
-                            id="updated-clicks"
-                            value={updatedMetric.clicks}
-                            onChange={(e) => setUpdatedMetric(prev => ({
-                                ...prev,
-                                clicks: Number(e.target.value)
-                            }))}
-                            className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
-                            />
-                        </label>
+                        <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-zinc-700 uppercase tracking-wider">Modify Record Data</span>
+                            <button
+                            onClick={() => setEditingMetric(false)}
+                            className="text-xs font-medium text-zinc-400 hover:text-zinc-600 cursor-pointer transition-colors"
+                            >Cancel</button>
+                        </div>
 
-                        <label htmlFor="updated-impressions">New impressions?
-                            <input 
-                            type="number"
-                            id="updated-impressions"
-                            value={updatedMetric.impressions}
-                            onChange={(e) => setUpdatedMetric(prev => ({
-                                ...prev,
-                                impressions: Number(e.target.value)
-                            }))}
-                            className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
-                            />
-                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div>
+                                <label htmlFor="updated-clicks" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Clicks
+                                    <input 
+                                    type="number"
+                                    id="updated-clicks"
+                                    value={updatedMetric.clicks}
+                                    onChange={(e) => setUpdatedMetric(prev => ({ ...prev, clicks: Number(e.target.value) }))}
+                                    className="w-full px-3 py-1.5 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                                    />
+                                </label>
+                            </div>
 
-                        <label htmlFor="updated-conversions">New conversions?
-                            <input 
-                            type="number"
-                            id="updated-conversions"
-                            value={updatedMetric.conversions}
-                            onChange={(e) => setUpdatedMetric(prev => ({
-                                ...prev,
-                                conversions: Number(e.target.value)
-                            }))}
-                            className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
-                            />
-                        </label>
+                            <div>
+                                <label htmlFor="updated-impressions" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Impressions
+                                    <input 
+                                    type="number"
+                                    id="updated-impressions"
+                                    value={updatedMetric.impressions}
+                                    onChange={(e) => setUpdatedMetric(prev => ({ ...prev, impressions: Number(e.target.value) }))}
+                                    className="w-full px-3 py-1.5 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                                    />
+                                </label>
+                            </div>
 
-                        <label htmlFor="updated-spend">New ad spend?
-                            <input 
-                            type="number"
-                            value={updatedMetric.ad_spend}
-                            onChange={(e) => setUpdatedMetric(prev => ({
-                                ...prev,
-                                ad_spend: Number(e.target.value)
-                            }))}
-                            id="updated-spend"
-                            className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
-                            />
-                        </label>
+                            <div>
+                                <label htmlFor="updated-conversions" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Conversions
+                                    <input 
+                                    type="number"
+                                    id="updated-conversions"
+                                    value={updatedMetric.conversions}
+                                    onChange={(e) => setUpdatedMetric(prev => ({ ...prev, conversions: Number(e.target.value) }))}
+                                    className="w-full px-3 py-1.5 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                                    />
+                                </label>
+                            </div>
 
-                        <label htmlFor="updated-revenue">New revenue?
-                            <input 
-                            type="number"
-                            id="updated-revenue"
-                            value={updatedMetric.revenue}
-                            onChange={(e) => setUpdatedMetric(prev => ({
-                                ...prev,
-                                revenue: Number(e.target.value)
-                            }))}
-                            className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
-                            />
-                        </label>
+                            <div>
+                                <label htmlFor="updated-spend" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Spend
+                                    <input 
+                                    type="number"
+                                    value={updatedMetric.ad_spend}
+                                    onChange={(e) => setUpdatedMetric(prev => ({
+                                        ...prev,
+                                        ad_spend: Number(e.target.value)
+                                    }))}
+                                    id="updated-spend"
+                                    className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
+                                    />
+                                </label>
+                            </div>
+
+                            <div className="sm:col-span-2">
+                                <label htmlFor="updated-revenue" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Revenue
+                                    <input 
+                                    type="number"
+                                    id="updated-revenue"
+                                    value={updatedMetric.revenue}
+                                    onChange={(e) => setUpdatedMetric(prev => ({ ...prev, revenue: Number(e.target.value) }))}
+                                    className="w-full px-3 py-1.5 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                                    />
+                                </label>
+                            </div>
+
+                        </div>
 
                         <button 
                         onClick={handleUpdateMetric}
-                        className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:opacity-90 duration-150">Update</button>
+                        className="w-full cursor-pointer font-semibold bg-indigo-600 px-4 py-2 text-sm text-white rounded-lg hover:bg-indigo-700 shadow-sm transition-colors focus:outline-none"
+                        >Save Changes</button>
+                    
 
                     </div>
-
-                    </>
                 )
                 }
             </div>
