@@ -241,7 +241,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
 
                     <button
                     onClick={handleAddMetric}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"
+                    className="inline-flex items-center gap-2 bg-indigo-600 text-white py-2 px-3.5 rounded-lg shadow-sm font-semibold text-xs tracking-wide transition-all hover:bg-indigo-700 active:scale-[0.99]"
                     >Add</button>
 
                 </div>
