@@ -139,7 +139,7 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
 
                 <div className="my-2">
                     <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">Spend History</p>
-                    <div className="h-20 w-full flex flex-col justify-center">
+                    <div className="w-full flex flex-col justify-center">
                         <SparkLine spendLineCharts={spendLineCharts}/>
                     </div>
                     <div className="flex justify-between text-[10px] font-medium text-zinc-400 tracking-tight mt-1 px-0.5">

@@ -137,8 +137,8 @@ export function CreativeSection () {
     return (
         <>
             { deletingCreative && (
-                <div className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 flex items-center justify-center">
-                    <div className="bg-white p-6 rounded-lg flex flex-col gap-4">
+                <div className="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-xl flex flex-col gap-4 max-w-sm w-full">
                         <p className="text-lg font-medium">Are you sure you would like to remove this creative?</p>
                         
                         <div className="flex gap-6 items-center justify-center">
@@ -152,31 +152,33 @@ export function CreativeSection () {
 
             }
 
-            <div className="mt-6 bg-white p-6 rounded-lg shadow-sm w-fit">
-                <label htmlFor="upload-creative-work"><span className="text-xl">Add creative</span>
+            <div className="mt-6 bg-white p-5 rounded-xl border border-zinc-200/80 shadow-sm w-full max-w-md">
+                <label htmlFor="upload-creative-work" className="block mb-4">
+                    <span className="text-sm font-semibold text-zinc-800 block mb-2">Add creative</span>
                     <input 
                     type="file"
                     id="upload-creative-work"
-                    className="border p-2 border-slate-300 rounded-lg mt-2 opacity-70 block cursor-pointer hover:bg-slate-100 duration-150 w-fit"
+                    className="text-sm text-zinc-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-zinc-100 file:text-zinc-700 hover:file:bg-zinc-200/80 block w-full cursor-pointer transition"
                     onChange={(e) => setNewUpload(e.target.files?.[0])}
                     />
                 </label>
 
-                <div className="mt-3">
-                <label htmlFor="creative-type"><span className="text-lg opacity-80">Type?</span>
+                <div className="mb-4">
+                <label htmlFor="creative-type">
+                    <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-1.5">Creative Variant/Type</span>
                     <input 
                     type="text"
                     id="creative-type"
                     placeholder="A or B"
                     value={creativeType}
                     onChange={(e) => setCreativeType(e.target.value)}
-                    className="border p-2 rounded-lg mt-3 w-fit block opacity-70 border-slate-300"
+                    className="w-full px-3 py-2 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
                     />
                 </label>
                 </div>
 
                 <button 
-                className="mt-4.5 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:bg-indigo-600 duration-150"
+                className="w-full cursor-pointer font-semibold bg-indigo-600 px-4 py-2 text-sm text-white rounded-lg hover:bg-indigo-700 shadow-sm transition-colors"
                 onClick={handleUpload}>Upload</button>
             </div>
 
@@ -188,25 +190,26 @@ export function CreativeSection () {
             { showingCreatives && ( 
             
             creativesList.map(creative => (
-                <div key={creative.aws_link} className="flex flex-col gap-4 border p-4 rounded-lg border-slate-200">
+                <div key={creative.aws_link} className="flex flex-col gap-4 border border-zinc-200 rounded-xl p-4 bg-white shadow-sm w-full max-w-md overflow-hidden">
 
-                <div className="flex gap-2 items-center mb-3">
-                    <p className="text-xl font-medium">Type: {creative.creative_type}</p>
+                <div className="flex items-center justify-between border-b border-zinc-100 pb-3">
+                    <p className="text-sm font-semibold text-zinc-800">Variant: {creative.creative_type}</p>
                     <button 
                     onClick={() => setDeletingCreative(creative)}
-                    className="text opacity-70 text-rose-800 underline cursor-pointer hover:opacity-100">Remove creative?</button>
+                    className="text-xs font-medium text-rose-600 hover:text-rose-700 cursor-pointer transition-colors">Remove</button>
                 </div>
 
-               
-                <p className="">Current votes: {creative.votes}</p>
-                <button
-                onClick={() => handleVote(creative.id)}
-                className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:opacity-90 duration-150 w-fit"
-                >Vote</button>
+               <div className="flex items-center justify-between bg-zinc-50 p-2.5 rounded-lg border border-zinc-100">
+                    <p className="text-xs font-semibold text-zinc-500">Votes received: {creative.votes}</p>
+                    <button
+                    onClick={() => handleVote(creative.id)}
+                    className="cursor-pointer font-semibold bg-white border border-zinc-200 px-3 py-1 text-xs text-zinc-700 rounded-md hover:bg-zinc-50 transition-colors shadow-sm"
+                    >Vote</button>
+                </div>
             
-
-                <img src={creative.aws_link} />
-               
+                <div className="w-full rounded-lg overflow-hidden border border-zinc-100 bg-zinc-50 flex items-center justify-center">
+                    <img src={creative.aws_link} alt="Creative Preview" className="w-full h-auto object-contain max-h-96" />
+                </div>
                 </div>
             ))
         )

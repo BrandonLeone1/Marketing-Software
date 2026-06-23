@@ -249,7 +249,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                 </>
 
                 ) : (
-                    <>
+                    <div className="p-6 overflow-y-auto flex-1 flex flex-col gap-4">
                     <p className="mt-3 text-xl">Metrics for this campaign:</p>
 
                     <div className="flex flex-col gap-4 mt-3">
@@ -259,7 +259,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
                         
                     }
                     </div>
-                  </>
+                  </div>
                 )
 
                 }

@@ -78,7 +78,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <label htmlFor="updated-clicks" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Clicks
                                     <input 
                                     type="number"
@@ -90,7 +90,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
                                 </label>
                             </div>
 
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <label htmlFor="updated-impressions" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Impressions
                                     <input 
                                     type="number"
@@ -102,7 +102,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
                                 </label>
                             </div>
 
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <label htmlFor="updated-conversions" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Conversions
                                     <input 
                                     type="number"
@@ -114,7 +114,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
                                 </label>
                             </div>
 
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <label htmlFor="updated-spend" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Spend
                                     <input 
                                     type="number"

@@ -80,7 +80,7 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
                                 impressions: parseInt(cleanNum(row["Impr."])) || parseInt(cleanNum(row["Impressions"])) || 0,
                                 clicks: parseInt(cleanNum(row["Clicks"])) || 0,
                                 conversions: parseInt(cleanNum(row["Conversions"])) || 0,
-                                revenue: parseFloat(cleanNum(row["Conv. value"])) || 0
+                                revenue: parseFloat(cleanNum(row["Conv. Value"])) || 0
                             }
                         })
                         console.log(normalizedRows);
@@ -112,24 +112,35 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
     
     return (
 
-    <div className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 flex items-center justify-center p-6">
-        <div className="bg-white p-8 max-w-5xl rounded-lg flex flex-col gap-6 max-h-150 overflow-y-auto lg:min-w-xl">
+    <div className="fixed inset-0 bg-zinc-950/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div className="bg-white border border-zinc-200 w-full max-w-md rounded-2xl flex flex-col shadow-xl overflow-hidden animate-in fade-in-50 zoom-in-95 duration-150">
             
-            <button
-            className="underline opacity-70 block ml-auto cursor-pointer hover:opacity-100 mb-3 duration-150"
-            onClick={() => setUploadingCSV(false)}
-            >Cancel</button>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-100 bg-zinc-50/50">
+                <span className="text-xs font-bold text-zinc-700 uppercase tracking-wider">Import Metrics</span>
+                <button 
+                onClick={() => setUploadingCSV(false)} 
+                className="text-xs font-medium text-zinc-400 hover:text-zinc-600 cursor-pointer transition-colors"
+                >Cancel</button>
+            </div>
 
-            <label htmlFor="google-csv"><span className="font-medium">Upload a Google Ads CSV</span>
-                <input 
-                type="file"
-                onChange={(e) => setCSVFile(e.target.files?.[0])}
-                id="google-csv"
-                className="border p-2 border-slate-300 rounded-lg mt-2 opacity-70 block cursor-pointer hover:bg-slate-100 duration-150 w-fit"
-                />
-            </label>
+            <div className="p-5 flex flex-col gap-5">
+                <label htmlFor="google-csv" className="block">
+                <span className="text-sm font-semibold text-zinc-800 block mb-2.5">Upload a Google Ads CSV</span>
+                    <input 
+                    type="file"
+                    onChange={(e) => setCSVFile(e.target.files?.[0])}
+                    id="google-csv"
+                    className="text-sm text-zinc-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-zinc-100 file:text-zinc-700 hover:file:bg-zinc-200/80 block w-full cursor-pointer transition-colors"
+                    />
+                </label>
 
-            <button onClick={handleCSVUpload} className="mt-3 cursor-pointer font-medium bg-indigo-500 px-4 py-1 rounded text-white hover:bg-indigo-600 duration-150">Upload</button>
+                <button 
+                onClick={handleCSVUpload} 
+                className="w-full cursor-pointer font-semibold bg-indigo-600 px-4 py-2.5 text-sm text-white rounded-lg hover:bg-indigo-700 shadow-sm transition-colors focus:outline-none"
+                >Process and Import File
+                </button>
+
+            </div>
         </div>
     </div>
     
