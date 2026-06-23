@@ -36,13 +36,14 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
         impressions: 0
     }
     const [campaignSummary, setCampaignSummary] = useState<campaignSummary>(initialState);
+    const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000"
 
     const [campaignTrends, setCampaignTrends] = useState<campaignTrends[]>([]);
 
     const getCampaignSummary = async () => {
         try {
             
-            const response = await fetch(`https://api.metricflows.xyz/api/analytics/summary/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`${APIURL}/api/analytics/summary/${selectedCampaign?.id}/?days=${selectedDays}`, {
             credentials: "include",
            
             })
@@ -66,7 +67,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
         
         try {
             
-            const response = await fetch(`https://api.metricflows.xyz/api/analytics/trends/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`${APIURL}/api/analytics/trends/${selectedCampaign?.id}/?days=${selectedDays}`, {
                 credentials: "include",
              
             })
@@ -88,7 +89,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
         
         try {
          
-            const response = await fetch(`https://api.metricflows.xyz/api/analytics/platform-breakdown/${selectedCampaign?.id}/?days=${selectedDays}`, {
+            const response = await fetch(`${APIURL}/api/analytics/platform-breakdown/${selectedCampaign?.id}/?days=${selectedDays}`, {
             credentials: "include",
             
         });
@@ -153,7 +154,7 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     const getInsights = async () => {
         setLoadingInsights(true);
         try {
-            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/insights/${selectedCampaign?.id}`, {
+            const response = await fetch(`${APIURL}/api/campaigns/insights/${selectedCampaign?.id}`, {
             credentials: "include",
             method: "GET",
         })

@@ -13,6 +13,8 @@ export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaig
         metric_date: ""
     }
 
+    const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000"
+
     const [spendLineCharts, setSpendLineCharts] = useState<spendLineCharts>(initialState);
     const [overviewData, setOverViewData] = useState<overviewData[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +32,7 @@ export function Homepage ({campaigns, addCampaign, updateCampaign, deleteCampaig
     
        
     
-        const response = await fetch(`https://api.metricflows.xyz/api/analytics/past-7-spend-per-campaign`, {
+        const response = await fetch(`${APIURL}/api/analytics/past-7-spend-per-campaign`, {
         credentials: "include",
         
      
@@ -57,7 +59,7 @@ const getOverviewData = async () => {
     setIsLoading(true);
     try {
       
-      const response = await fetch(`https://api.metricflows.xyz/api/analytics/homepage-overview-7-days`, {
+      const response = await fetch(`${APIURL}/api/analytics/homepage-overview-7-days`, {
         credentials: "include",
     
     })

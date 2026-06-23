@@ -133,8 +133,8 @@ metricsRouter.get("/get/:id", verifyToken, checkMembership, async (req: Request,
             return res.status(500).json({success: false, message: "Couldn't get metrics for campaign due to server error"});
         }
 });
-
-metricsRouter.put("/update/:id", verifyToken, checkOwnership, async (req: Request, res: Response) => {
+// DIDNT NEED THIS CHECK HERE
+metricsRouter.put("/update/:id", verifyToken, async (req: Request, res: Response) => {
     try {
             
             const {id} = req.params;

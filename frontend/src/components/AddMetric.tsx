@@ -53,12 +53,13 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
 
     const [newMetric, setNewMetric] = useState<metric>(initialMetricState);
 
-    const [metrics, setMetrics] = useState<metrics[]>([])
+    const [metrics, setMetrics] = useState<metrics[]>([]);
+    const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
     
     const getMetrics = async () => {
         
         try {
-           const response = await fetch(`https://api.metricflows.xyz/api/metrics/get/${campaign_id}`, {
+           const response = await fetch(`${APIURL}/api/metrics/get/${campaign_id}`, {
             credentials: "include"
             });
 
@@ -82,7 +83,7 @@ export function AddMetric ({setAddingMetrics, campaign_id}: addMetricProps) {
     
     const handleAddMetric = async () => {
         try {
-            const response = await fetch(`https://api.metricflows.xyz/api/metrics/create/${campaign_id}`, {
+            const response = await fetch(`${APIURL}/api/metrics/create/${campaign_id}`, {
             method: "POST",
             credentials: "include",
             headers: {"Content-Type": "application/json"},

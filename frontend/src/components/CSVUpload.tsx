@@ -12,6 +12,7 @@ type props = {
 export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
     
     const [csvFile, setCSVFile] = useState<File | undefined>(undefined);
+    const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
     const handleCSVUpload = async () => {
         console.log(csvFile, csvFile?.name.split(".").pop())
@@ -84,7 +85,7 @@ export function CSVUpload ({setUploadingCSV, campaign_id}: props) {
                         })
                         console.log(normalizedRows);
 
-                        const response = await fetch(`https://api.metricflows.xyz/api/metrics/google-ads/add/${campaign_id}`, {
+                        const response = await fetch(`${APIURL}/api/metrics/google-ads/add/${campaign_id}`, {
                             method: "POST",
                             credentials: "include",
                             headers: {"Content-Type": "application/json"},

@@ -10,10 +10,11 @@ export function CampaignMetric ({metric, setMetrics}: props) {
     
     const [editingMetric, setEditingMetric] = useState(false);
     const [updatedMetric, setUpdatedMetric] = useState<metrics>(metric); 
+    const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000"
 
     const handleUpdateMetric = async () => {
         try {
-            const response = await fetch(`https://api.metricflows.xyz/api/metrics/update/${metric.id}`, {
+            const response = await fetch(`${APIURL}/api/metrics/update/${metric.id}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             credentials: "include",

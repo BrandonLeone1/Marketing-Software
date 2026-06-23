@@ -3,12 +3,12 @@ import { TeamManagementProps } from "../types/TeamManagementProps";
 
 export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManagementProps) {
     
-   
+   const APIURL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
     const getTeamMembers = async () => {
         try {
             const token = localStorage.getItem("token")
-            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/get-team/${selectedCampaign?.id}`, {
+            const response = await fetch(`${APIURL}/api/campaigns/get-team/${selectedCampaign?.id}`, {
                 credentials: "include",
                 headers: {"Authorization": `Bearer ${token}`}
             })
@@ -45,7 +45,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
         
         try {
             const token = localStorage.getItem("token")
-            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/remove-member/${selectedCampaign?.id}`, {
+            const response = await fetch(`${APIURL}/api/campaigns/remove-member/${selectedCampaign?.id}`, {
             method: "POST",
             credentials: "include",
             headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
@@ -75,7 +75,7 @@ export function TeamManagement ({selectedCampaign, setShowingTeam}: TeamManageme
     const handleAddMember = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(`https://api.metricflows.xyz/api/campaigns/add-member/${selectedCampaign?.id}`, {
+            const response = await fetch(`${APIURL}/api/campaigns/add-member/${selectedCampaign?.id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: {"Content-Type": "application/json", "Authorization": `Bearer ${token}`},
