@@ -43,7 +43,6 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                     <div className="bg-white border border-zinc-200 p-6 md:p-8 flex flex-col gap-5 relative rounded-2xl shadow-xl w-full max-w-md">
                         
                         <div className="flex items-center justify-between border-b border-zinc-100 pb-4">
-                            <h3 className="text-sm font-semibold text-zinc-900">Edit Campaign</h3>
 
                             <div className="flex items-center gap-4">
                                 <button
@@ -56,8 +55,6 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                                 className="text-xs font-medium text-zinc-400 hover:text-zinc-600 transition"
                                 >Cancel</button>
                             </div>
-
-                            <p className="text-sm text-zinc-500 -mt-2">Modifying <span className="font-semibold text-zinc-800">{campaign.campaign_name}</span></p>
                             
                             
                             { deletingCampaign && (
@@ -73,12 +70,9 @@ export function CampaignCard ({campaign, spendLineCharts, updateCampaign, delete
                             )
                             }
                             
-                            
-                            <button
-                            onClick={() => setEditingCampaign(false)}
-                            className="ml-auto cursor-pointer underline opacity-70 hover:opacity-100 duration-150"
-                            >Cancel</button>
                         </div>
+
+                        <p className="text-sm text-zinc-500 -mt-2 block">Modifying <span className="font-semibold text-zinc-800">{campaign.campaign_name}</span></p>
                         
                         <label className="text-xs font-medium text-zinc-500 uppercase tracking-widest block" htmlFor="new-campaign-name">Campaign Name
                             <input 
