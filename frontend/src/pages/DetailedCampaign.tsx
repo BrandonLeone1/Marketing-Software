@@ -193,25 +193,31 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
     return (
         <>
             <main className="max-w-7xl p-6 mx-auto">
-                <Link to={`/dashboard`} className="text-xl cursor-pointer block mt-4 w-fit group hover:bg-indigo-100 rounded-lg duration-150 px-3 py-1"><i className="fa-solid fa-arrow-left text-indigo-500"></i> Back to dashboard</Link>
+                <Link to={`/dashboard`} className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-500 hover:text-indigo-600 transition-colors mt-2 mb-6 group">
+                    <i className="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-0.5"></i> Back to dashboard
+                </Link>
                 
-                <div className="flex justify-between items-center flex-wrap">
-                    <h1 className="text-4xl mt-24 font-semibold">{selectedCampaign?.campaign_name}</h1>
-                    
-                    <div className="flex md:flex-col flex-wrap gap-2 border border-slate-200 px-8 py-4 rounded-lg mt-24 ml-auto bg-slate-100/40">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-200 pb-6 mb-8">
+                    <h1 className="text-3xl font-bold tracking-tight text-zinc-900">{selectedCampaign?.campaign_name}</h1>
+        
+                <div className="flex items-center flex-wrap gap-2 bg-zinc-100/80 p-1 rounded-xl border border-zinc-200/60 shadow-inner">
                         
                         { selectedCampaign?.user_role === "Owner" && (
                     
                             <>
                             <button 
                             onClick={() => setShowingTeam(true)}
-                            className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-users text-indigo-500"></i> Manage Team</button>
-                            
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"><i className="fa-solid fa-users text-indigo-500/80"></i> Team</button>
+    
                             <button 
                             onClick={() => setAddingMetrics(true)}
-                            className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-chart-simple text-indigo-500"></i> Add metrics</button>
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"><i className="fa-solid fa-chart-simple text-indigo-500/80"></i> Metrics</button>
+                            
+                            <button 
+                            onClick={() => setUploadingCSV(true)}
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"><i className="fa-solid fa-file-csv text-indigo-500/80"></i> Google Ads</button>
                             </>
-                    )}
+                        )}
 
                         { addingMetrics && (
                             <AddMetric setAddingMetrics={setAddingMetrics} campaign_id={selectedCampaign?.id}/>
@@ -230,19 +236,12 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
                             }
                         }
                         }
-                        className="text-xl cursor-pointer hover:bg-indigo-100 mr-auto px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-comment text-indigo-500"></i> Quick insights</button>
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"><i className="fa-solid fa-comment text-indigo-500/80"></i> Insights</button>
 
-                        { selectedCampaign?.user_role === "Owner" && (
                         <button 
-                        onClick={() => setUploadingCSV(true)}
-                        className="text-xl cursor-pointer mr-auto hover:bg-indigo-100 px-3 py-1 rounded-lg duration-150"><i className="fa-solid fa-file-csv text-indigo-500"></i> 
-                        Google Ads</button>
-                        )
-                        }
-
-                        <button className="text-xl cursor-pointer mr-auto hover:bg-indigo-100 px-3 py-1 rounded-lg duration-150"
                         onClick={handleRefresh}
-                        ><i className="fa-solid fa-arrows-rotate text-indigo-500"></i> Refresh data</button>
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg text-zinc-700 hover:text-indigo-600 hover:bg-white transition shadow-xs"
+                        ><i className="fa-solid fa-arrows-rotate text-indigo-500/80"></i> Refresh</button>
 
 
                     </div>
@@ -290,23 +289,23 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
                 </section>
                 
 
-                <div className="flex gap-6 flex-wrap font-medium text-lg mt-12">
+                <div className="inline-flex bg-zinc-100 p-0.5 rounded-lg border border-zinc-200 mb-6 shadow-inner">
                     <button 
                     onClick={() => setSelectedDays("14")}
-                    className={`${selectedDays === "14" && "after:w-full"} cursor-pointer after:h-0.5 after:w-0 after:bg-indigo-500 after:block hover:after:w-full after:duration-150`}>14 day</button>
+                    className={`px-3 py-1 text-xs font-semibold rounded-md transition ${selectedDays === "14" ? "bg-white text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900"}`}>14D</button>
                     <button 
                     onClick={() => setSelectedDays("30")}
-                    className={`${selectedDays === "30" && "after:w-full"} cursor-pointer after:h-0.5 after:w-0 after:bg-indigo-500 after:block hover:after:w-full after:duration-150`}>30 day</button>
+                    className={`px-3 py-1 text-xs font-semibold rounded-md transition ${selectedDays === "30" ? "bg-white text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900"}`}>30D</button>
                     <button 
                     onClick={() => setSelectedDays("90")}
-                    className={`${selectedDays === "90" && "after:w-full"} cursor-pointer after:h-0.5 after:w-0 after:bg-indigo-500 after:block hover:after:w-full after:duration-150`}>90 day</button>
-                    </div>
+                    className={`px-3 py-1 text-xs font-semibold rounded-md transition ${selectedDays === "90" ? "bg-white text-zinc-900 shadow-sm" : "text-zinc-500 hover:text-zinc-900"}`}>90D</button>
+                </div>
 
-                <section className="mt-18 border px-4 py-8 rounded-lg border-slate-200">
+                <section className="mb-10 bg-white border border-zinc-200 p-6 rounded-2xl shadow-sm">
 
-                    <h2 className="opacity-70">High-Level Overview</h2>
+                    <h2 className="text-xs font-semibold tracking-widest text-zinc-400 uppercase mb-4">High-Level Performance</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 mt-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-[2.5fr_1fr] gap-6">
                         <RevenueVsSpend campaignTrends={campaignTrends}/>
 
                         <div className="flex flex-col items-center justify-between gap-6">    
@@ -319,9 +318,9 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
 
                 </section>
 
-                <section className="mt-24">
+                <section className="mb-10">
                     
-                    <h2 className="opacity-70">More Details</h2>
+                    <h2 className="text-xs font-semibold tracking-widest text-zinc-400 uppercase mb-4">Granular Trends</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mt-8">
                         <CPACard cpaInfo={cpaInfo}/>
@@ -331,9 +330,9 @@ export function DetailedCampaign ({campaigns}: DetailedCampaignProps) {
 
                 </section>
 
-                <section className="mt-24">
-                    <h2 className="opacity-70">Platform breakdown</h2>
-                    <div className="bg-white border border-slate-100 shadow-sm rounded-xl p-6 mt-6 w-full">
+                <section className="mb-10">
+                    <h2 className="text-xs font-semibold tracking-widest text-zinc-400 uppercase mb-4">Platform Breakdown</h2>
+                    <div className="bg-white border border-zinc-200 shadow-sm rounded-2xl p-5 w-full">
                         <PlatformBreakdown breakdown={breakdown}/>
                     </div>
 
