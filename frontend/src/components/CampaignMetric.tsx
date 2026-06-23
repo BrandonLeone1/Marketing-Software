@@ -45,7 +45,7 @@ export function CampaignMetric ({metric, setMetrics}: props) {
  
     return (
         <>
-            <div className="w-full border border-zinc-200/80 rounded-xl bg-white shadow-sm transition-all overflow-hidden">
+            <div className="w-full border border-zinc-200/80 rounded-xl bg-white shadow-sm transition-all overflow-y-auto px-4">
                 
                 { !editingMetric ? (
                 <div className="p-4 flex items-center justify-between hover:bg-zinc-50/50 transition-colors">
@@ -123,12 +123,12 @@ export function CampaignMetric ({metric, setMetrics}: props) {
                                         ad_spend: Number(e.target.value)
                                     }))}
                                     id="updated-spend"
-                                    className="border p-2 border-slate-300 opacity-70 rounded-lg w-full mt-2 mb-3"
+                                    className="w-full px-3 py-1.5 text-sm bg-white border border-zinc-200 rounded-lg text-zinc-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
                                     />
                                 </label>
                             </div>
 
-                            <div className="sm:col-span-2">
+                            <div className="col-span-2">
                                 <label htmlFor="updated-revenue" className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-1">Revenue
                                     <input 
                                     type="number"
